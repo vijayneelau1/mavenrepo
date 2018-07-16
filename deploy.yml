@@ -1,4 +1,4 @@
-- name: Deploy student app in PROD
+- name: Deploy student app in 
   hosts: all
   become: yes
   vars:
@@ -6,7 +6,7 @@
   tasks:
     - name: Remove the old war files
       file:
-        name: "/opt/apache-tomcat-9.0.1/webapps/{{item}}"
+        name: "/root/apache-tomcat-9.0.10/webapps/{{item}}"
         state: absent
       with_items:
         - student
@@ -14,4 +14,4 @@
     - name: Download war file
       get_url:
         url: "{{URL}}"
-        dest: /opt/apache-tomcat-9.0.1/webapps/student.war
+        dest: /root/apache-tomcat-9.0.10/webapps/student.war
