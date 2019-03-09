@@ -9,8 +9,7 @@
         name: "/root/apache-tomcat-9.0.16/webapps/{{item}}"
         state: absent
       with_items:
-        - student
-        - student.war
+        - *.war
     - name: Download war file
       get_url:
         url: "{{URL}}"
