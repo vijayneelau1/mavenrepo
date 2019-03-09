@@ -14,4 +14,4 @@
     - name: Download war file
       get_url:
         url: "{{URL}}"
-        dest: /root/apache-tomcat-9.0.10/webapps/
+        dest: /root/apache-tomcat-9.0.16/webapps/
