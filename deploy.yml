@@ -1,16 +1,22 @@
-- name: Deploy student app in DEV
-  hosts: all
-  become: yes
-  vars:
-    URL: URL-LOC
-  tasks:
-    - name: Remove the old war files
-      file:
-        name: "/root/apache-tomcat-9.0.16/webapps/{{item}}"
-        state: absent
-      with_items:
-        - "{{item}}.war"
-    - name: Download war file
-      get_url:
-        url: "{{URL}}"
-        dest: /root/apache-tomcat-9.0.16/webapps/
+- name : deploying the student war file
+  hosts : all
+  become_user : root
+  vars :
+    TOMCAT_LOC : apache-tomcat-9.0.16
+  tasks :
+     - name : find the old files
+       find :
+         path : "{{TOMCAT_LOC}}/webapps/"
+         pattern : "*.war"
+         register : out
+       
+     - name : remove the old files
+       file :
+        path : "{{item.path}}"
+        pattern : "*.war"
+        state : absent
+     
+     - name : print the url value
+        get_url :
+            url : "{{ url }}"
+            dest : "{{TOMCAT_LOC}}/webapps/"
