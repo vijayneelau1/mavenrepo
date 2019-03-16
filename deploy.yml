@@ -3,6 +3,7 @@
   become_user : root
   vars :
     TOMCAT_LOC : apache-tomcat-9.0.16
+    url : http://35.229.25.223:8081/service/rest/repository/browse/maven-snapshots/com/jdevs/studentapp/$VER/$FINALVER/$FINALVER.war" '-ssh-extra-args=-o StrictHostKeyChecking=no'
   tasks :
      - name : find the old files
        find :
