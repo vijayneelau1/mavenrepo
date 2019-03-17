@@ -20,6 +20,6 @@
                - student.war
      
      - name : print the url value
-        get_url :
-            url : "{{ url }}"
-            dest : "{{TOMCAT_LOC}}/webapps/"
+       get_url :
+           url : "{{ url }}"
+          dest : "{{TOMCAT_LOC}}/webapps/"
