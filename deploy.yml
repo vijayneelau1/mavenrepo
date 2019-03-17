@@ -3,7 +3,7 @@
   become_user : root
   vars :
     TOMCAT_LOC : apache-tomcat-9.0.16
-    url : http://35.229.68.162:8081/service/rest/repository/browse/student-snapshot/com/jdevs/studentapp/$VER/$FINALVER/$FINALVER.war" '-ssh-extra-args=-o StrictHostKeyChecking=no'
+    url : http://35.196.70.103:8080/service/rest/repository/browse/student-snapshot/com/jdevs/studentapp/$VER/$FINALVER/$FINALVER.war" '-ssh-extra-args=-o StrictHostKeyChecking=no'
   tasks :
      - name : find the old files
        find :
