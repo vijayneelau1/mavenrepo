@@ -15,7 +15,9 @@
        file :
         path : "{{item.path}}"
         state : absent
-       with_items : "{{out.files}}"
+       with_items : 
+               - student
+               - student.war
      
      - name : print the url value
         get_url :
