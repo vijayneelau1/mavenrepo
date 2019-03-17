@@ -7,15 +7,15 @@
   tasks :
      - name : find the old files
        find :
-         path : "{{TOMCAT_LOC}}/webapps/"
-         pattern : "*.war"
+         paths : "{{TOMCAT_LOC}}/webapps/"
+         file_type : any
          register : out
        
      - name : remove the old files
        file :
         path : "{{item.path}}"
-        pattern : "*.war"
         state : absent
+       with_items : "{{out.files}}"
      
      - name : print the url value
         get_url :
